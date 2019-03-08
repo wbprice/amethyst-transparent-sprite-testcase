@@ -14,7 +14,6 @@ fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
 
     let app_root = application_root_dir();
-    let assets_directory = format!("{}/texture", app_root);
 
     let path = format!(
         "{}/resources/display_config.ron",
@@ -36,7 +35,7 @@ fn main() -> amethyst::Result<()> {
                     .with_sprite_sheet_processor()
                 )?;
 
-    let mut game = Application::new(assets_directory, ExampleState, game_data)?;
+    let mut game = Application::new("./", ExampleState, game_data)?;
 
     game.run();
 
