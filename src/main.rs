@@ -13,8 +13,6 @@ use amethyst::{
 fn main() -> amethyst::Result<()> {
     amethyst::start_logger(Default::default());
 
-    let app_root = application_root_dir();
-
     let path = format!(
         "{}/resources/display_config.ron",
         application_root_dir()
@@ -72,7 +70,7 @@ struct ExampleState;
 impl SimpleState for ExampleState {
     fn on_start(&mut self, data: StateData<'_, GameData<'_, '_>>) {
         let world = data.world;
-        let path = "spritesheet.png";
+        let path = "texture/spritesheet.png";
         let texture_handle = load_texture(path, world);
 
         init_image(world, &texture_handle);
