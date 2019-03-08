@@ -31,7 +31,8 @@ fn main() -> amethyst::Result<()> {
             .with_bundle(
                 RenderBundle::new(pipe, Some(config))
                     .with_sprite_sheet_processor()
-                )?;
+                    .with_sprite_visibility_sorting(&[]),
+            )?;
 
     let mut game = Application::new("./", ExampleState, game_data)?;
 
